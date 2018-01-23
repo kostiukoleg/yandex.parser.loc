@@ -82,11 +82,15 @@ $this->title = 'Парсер товаров Яндекс.Маркет v.9.25';
                 </span>
             </p>
             <p>
+                <label for="parce_img">Парсит с картинками:</label>
+                <input type="checkbox" id="parce_img">
+            </p>
+            <p>
                 <label for="items">Кол-во товаров:</label>
                 <input type="text" class="form-control" id="items">
             </p>            
             <p>
-                <label for="delay">Задержка при парсинге:</label>
+                <label for="delay">Задержка при парсинге (сек.):</label>
                 <input type="text" class="form-control" id="delay">
             </p>
             <p>
