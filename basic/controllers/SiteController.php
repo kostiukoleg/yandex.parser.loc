@@ -125,4 +125,16 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    public function actionCleanDir($dir=""){
+        if (file_exists($dir)){
+            foreach (glob($dir.'/*') as $file){
+                unlink($file); 
+            }
+        }       
+    }
+    
+    public static function minifyHTML($html){
+        return preg_replace('/\s+/', ' ', $html);
+    }
 }
