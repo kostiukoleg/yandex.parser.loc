@@ -12,20 +12,20 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'xpath_title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'category_id')->textInput() ?>
 
     <?= $form->field($model, 'images')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'price')->textInput() ?>
+    <?= $form->field($model, 'xpath_price')->textInput() ?>
 
     <?= $form->field($model, 'brand')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textArea() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -17,21 +17,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'xpath_title') ?>
 
     <?= $form->field($model, 'category_id') ?>
 
     <?= $form->field($model, 'images') ?>
 
-    <?= $form->field($model, 'price') ?>
+    <?= $form->field($model, 'xpath_price') ?>
 
     <?php // echo $form->field($model, 'brand') ?>
 
     <?php // echo $form->field($model, 'description') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Поиск', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Сбросить', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

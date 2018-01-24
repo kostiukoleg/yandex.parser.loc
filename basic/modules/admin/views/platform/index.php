@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\PlatformSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Platforms';
+$this->title = 'Торговые площадки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="platform-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Platform', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать площадку', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

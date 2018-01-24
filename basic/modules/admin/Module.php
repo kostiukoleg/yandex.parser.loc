@@ -7,6 +7,7 @@ namespace app\modules\admin;
  */
 class Module extends \yii\base\Module
 {
+    public $layout = '/admin';
     /**
      * {@inheritdoc}
      */

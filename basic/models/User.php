@@ -43,12 +43,12 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Имя пользователя',
             'email' => 'Email',
-            'phone' => 'Phone',
-            'password' => 'Password',
-            'isAdmin' => 'Is Admin',
-            'photo' => 'Photo',
+            'phone' => 'Телефон',
+            'password' => 'Пароль',
+            'isAdmin' => 'Это админ?',
+            'photo' => 'Фото',
         ];
     }
 }

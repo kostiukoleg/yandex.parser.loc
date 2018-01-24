@@ -31,8 +31,9 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'price'], 'integer'],
-            [['title', 'images', 'brand', 'description'], 'string', 'max' => 255],
+            [['category_id', 'xpath_price'], 'integer'],
+            [['title', 'images', 'brand'], 'string', 'max' => 255],
+            [['description'], 'trim'],
         ];
     }
 
@@ -43,12 +44,12 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'category_id' => 'Category ID',
-            'images' => 'Images',
-            'price' => 'Price',
-            'brand' => 'Brand',
-            'description' => 'Description',
+            'title' => 'Название товара',
+            'category_id' => 'ID Категории',
+            'images' => 'Картинки',
+            'xpath_price' => 'Цена',
+            'brand' => 'Бренд',
+            'description' => 'Характеристики (описание) товара',
         ];
     }
 }

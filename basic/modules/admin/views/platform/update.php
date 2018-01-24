@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Platform */
 
-$this->title = 'Update Platform: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Platforms', 'url' => ['index']];
+$this->title = 'Изменить площадку: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Торговые площадки', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 ?>
 <div class="platform-update">
 

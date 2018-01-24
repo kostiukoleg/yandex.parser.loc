@@ -38,8 +38,8 @@ class Platform extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'link' => 'Link',
+            'title' => 'Название торговой площадки',
+            'link' => 'Ссилка на площадку',
         ];
     }
 }
