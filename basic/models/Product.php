@@ -31,7 +31,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'xpath_price'], 'integer'],
+            [['category_id', 'price'], 'integer'],
             [['title', 'images', 'brand'], 'string', 'max' => 255],
             [['description'], 'trim'],
         ];
@@ -47,7 +47,7 @@ class Product extends \yii\db\ActiveRecord
             'title' => 'Название товара',
             'category_id' => 'ID Категории',
             'images' => 'Картинки',
-            'xpath_price' => 'Цена',
+            'price' => 'Цена',
             'brand' => 'Бренд',
             'description' => 'Характеристики (описание) товара',
         ];

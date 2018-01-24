@@ -26,10 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'xpath_title',
+            'title',
             'category_id',
             'images',
-            'xpath_price',
+            'price',
             //'brand',
             //'description',
 

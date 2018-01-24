@@ -17,13 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'xpath_title') ?>
+    <?= $form->field($model, 'title') ?>
 
     <?= $form->field($model, 'category_id') ?>
 
     <?= $form->field($model, 'images') ?>
 
-    <?= $form->field($model, 'xpath_price') ?>
+    <?= $form->field($model, 'price') ?>
 
     <?php // echo $form->field($model, 'brand') ?>
 

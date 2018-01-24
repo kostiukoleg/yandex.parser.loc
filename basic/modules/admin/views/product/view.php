@@ -29,10 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'xpath_title',
+            'title',
             'category_id',
             'images',
-            'xpath_price',
+            'price',
             'brand',
             'description',
         ],
