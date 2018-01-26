@@ -10,13 +10,14 @@ use Yii;
  * @property int $id
  * @property string $title
  * @property int $category_id
- * @property string $images
+ * @property string $product_image
  * @property int $price
  * @property string $brand
  * @property string $description
  */
 class Product extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * {@inheritdoc}
      */
@@ -32,7 +33,8 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['category_id', 'price'], 'integer'],
-            [['title', 'images', 'brand'], 'string', 'max' => 255],
+            [['product_image'], 'file', 'extensions' => 'png, jpg','maxFiles' => 4],
+            [['title', 'brand'], 'string', 'max' => 255],
             [['description'], 'trim'],
         ];
     }
@@ -46,7 +48,7 @@ class Product extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Название товара',
             'category_id' => 'ID Категории',
-            'images' => 'Картинки',
+            'product_image' => 'Картинки',
             'price' => 'Цена',
             'brand' => 'Бренд',
             'description' => 'Характеристики (описание) товара',

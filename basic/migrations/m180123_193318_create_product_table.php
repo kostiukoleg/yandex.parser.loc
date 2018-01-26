@@ -16,7 +16,7 @@ class m180123_193318_create_product_table extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string(),
             'category_id' => $this->integer(),
-            'images' => $this->string()->defaultValue(null),
+            'product_image' => $this->string()->defaultValue(null),
             'price' => $this->integer()->defaultValue(0),
             'brand' => $this->string()->defaultValue(null),
             'description' => $this->text()->defaultValue(null),

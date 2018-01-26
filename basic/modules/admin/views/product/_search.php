@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'category_id') ?>
 
-    <?= $form->field($model, 'images') ?>
+    <?= $form->field($model, 'product_image') ?>
 
     <?= $form->field($model, 'price') ?>
 
