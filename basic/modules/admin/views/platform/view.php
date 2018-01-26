@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Platform */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Platforms', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Площадки', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="platform-view">
@@ -31,6 +31,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'link',
+            'link_chk',
+            'parse_link',
+            'description',
+            'xpath_product_link',  
+            'xpath_title',  
+            'xpath_price',  
+            'xpath_img',  
+            'xpath_main_img',  
+            'xpath_description',  
+            'product_category',  
+            'product_url_category'
         ],
     ]) ?>
 

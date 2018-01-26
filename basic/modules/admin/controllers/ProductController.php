@@ -5,9 +5,11 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\models\Product;
 use app\modules\ProductSearch;
+use app\models\UploadForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;   
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -84,6 +86,7 @@ class ProductController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->fileUpload();
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -123,5 +126,20 @@ class ProductController extends Controller
         }
 
         throw new NotFoundHttpException('Даная страница не найдена.');
+    }
+
+    public function fileUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->images = UploadedFile::getInstances($model, 'images');
+            if ($model->upload()) {
+                // file is uploaded successfully
+                return;
+            }
+        }
+
+        //return $this->redirect(['index']);
     }
 }

@@ -16,7 +16,7 @@ use Yii;
  * @property string $description
  */
 class Product extends \yii\db\ActiveRecord
-{
+{       
     /**
      * {@inheritdoc}
      */
@@ -32,7 +32,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['category_id', 'price'], 'integer'],
-            [['title', 'images', 'brand'], 'string', 'max' => 255],
+            [['title', 'brand'], 'string', 'max' => 255],
             [['description'], 'trim'],
         ];
     }
