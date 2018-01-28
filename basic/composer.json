@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
 		"garyjl/yii2-simple_html_dom": "*",
-        "electrolinux/phpquery": "dev-master"
+        "electrolinux/phpquery": "dev-master",
+		"ruskid/yii2-csv-importer": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

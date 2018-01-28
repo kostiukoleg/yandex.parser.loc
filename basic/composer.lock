@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "77ef44ee452692d669fa845d8bd81ff2",
+    "content-hash": "c878fe1f53b3d7ed2dab02a6b8d8ad7f",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -303,6 +303,48 @@
             "time": "2015-01-03T08:52:30+00:00"
         },
         {
+            "name": "ruskid/yii2-csv-importer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ruskid/yii2-csv-importer.git",
+                "reference": "6130955dd229e9df858a143e9eb989a6cc00255a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ruskid/yii2-csv-importer/zipball/6130955dd229e9df858a143e9eb989a6cc00255a",
+                "reference": "6130955dd229e9df858a143e9eb989a6cc00255a",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "ruskid\\csvimporter\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Victor Demin",
+                    "email": "demin@trabeja.com"
+                }
+            ],
+            "description": "Helper to import csv files into database",
+            "keywords": [
+                "csv",
+                "excel",
+                "importer",
+                "yii2"
+            ],
+            "time": "2017-02-17T11:58:19+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "5.x-dev",
             "source": {
@@ -362,12 +404,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "4771380a0a4fb1a939f748eecb034d425dbffac1"
+                "reference": "6a8105d04af4d2fbe9f20e0c0ab2c1c2a2b77693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/4771380a0a4fb1a939f748eecb034d425dbffac1",
-                "reference": "4771380a0a4fb1a939f748eecb034d425dbffac1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/6a8105d04af4d2fbe9f20e0c0ab2c1c2a2b77693",
+                "reference": "6a8105d04af4d2fbe9f20e0c0ab2c1c2a2b77693",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +496,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-01-23T11:17:25+00:00"
+            "time": "2018-01-26T12:31:27+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -702,23 +744,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/base.git",
-                "reference": "c3fcea61525e62361ecc45aea1837f225ba73b4f"
+                "reference": "8178b962fb86a0aa179a803bce46ea9743264275"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/base/zipball/c3fcea61525e62361ecc45aea1837f225ba73b4f",
-                "reference": "c3fcea61525e62361ecc45aea1837f225ba73b4f",
+                "url": "https://api.github.com/repos/Codeception/base/zipball/8178b962fb86a0aa179a803bce46ea9743264275",
+                "reference": "8178b962fb86a0aa179a803bce46ea9743264275",
                 "shasum": ""
             },
             "require": {
                 "behat/gherkin": "~4.4.0",
+                "codeception/stub": "^1.0",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "guzzlehttp/psr7": "~1.0",
                 "php": ">=5.4.0 <8.0",
                 "phpunit/php-code-coverage": ">=2.2.4 <6.0",
                 "phpunit/phpunit": ">=4.8.28 <5.0.0 || >=5.6.3 <7.0",
-                "phpunit/phpunit-mock-objects": ">2.3 <5.0",
                 "sebastian/comparator": ">1.1 <3.0",
                 "sebastian/diff": ">=1.4 <3.0",
                 "symfony/browser-kit": ">=2.7 <5.0",
@@ -733,8 +775,6 @@
                 "codeception/specify": "~0.3",
                 "facebook/graph-sdk": "~5.3",
                 "flow/jsonpath": "~0.2",
-                "league/factory-muffin": "^3.0",
-                "league/factory-muffin-faker": "^1.0",
                 "monolog/monolog": "~1.8",
                 "pda/pheanstalk": "~3.0",
                 "php-amqplib/php-amqplib": "~2.4",
@@ -788,7 +828,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-12-12T04:54:15+00:00"
+            "time": "2018-01-27T23:54:49+00:00"
         },
         {
             "name": "codeception/specify",
@@ -829,6 +869,39 @@
             ],
             "description": "BDD code blocks for PHPUnit and Codeception",
             "time": "2016-10-21T09:42:00+00:00"
+        },
+        {
+            "name": "codeception/stub",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/Stub.git",
+                "reference": "673ea54cdd7141e0a5138ad78aaa60751912f573"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/Stub/zipball/673ea54cdd7141e0a5138ad78aaa60751912f573",
+                "reference": "673ea54cdd7141e0a5138ad78aaa60751912f573",
+                "shasum": ""
+            },
+            "require": {
+                "phpunit/phpunit-mock-objects": "^2.3|^3.0|^4.0|^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.0|^6.0|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Flexible Stub wrapper for PHPUnit's Mock Builder",
+            "time": "2018-01-27T00:37:17+00:00"
         },
         {
             "name": "codeception/verify",
@@ -926,12 +999,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "d15bf1dc252f61427bb247c31dcd4df6b1c9f07c"
+                "reference": "ab1549f2b38e23ca5af5574cdb8f9bff827a557c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d15bf1dc252f61427bb247c31dcd4df6b1c9f07c",
-                "reference": "d15bf1dc252f61427bb247c31dcd4df6b1c9f07c",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ab1549f2b38e23ca5af5574cdb8f9bff827a557c",
+                "reference": "ab1549f2b38e23ca5af5574cdb8f9bff827a557c",
                 "shasum": ""
             },
             "require": {
@@ -968,7 +1041,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2018-01-16T09:36:14+00:00"
+            "time": "2018-01-25T17:02:46+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1582,12 +1655,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "32f4c99ed190da7bb8fa2e8a140a174353dae05c"
+                "reference": "e92a128096c1cf00050212fb64253f40757ab5a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/32f4c99ed190da7bb8fa2e8a140a174353dae05c",
-                "reference": "32f4c99ed190da7bb8fa2e8a140a174353dae05c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e92a128096c1cf00050212fb64253f40757ab5a2",
+                "reference": "e92a128096c1cf00050212fb64253f40757ab5a2",
                 "shasum": ""
             },
             "require": {
@@ -1656,7 +1729,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-01-06T07:01:59+00:00"
+            "time": "2018-01-26T16:47:27+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2390,12 +2463,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "cee00cc76f954619493748e2a6f38e4168424dd6"
+                "reference": "6a353cd1c0f21ae465ad64217ff24779ce25b2db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/cee00cc76f954619493748e2a6f38e4168424dd6",
-                "reference": "cee00cc76f954619493748e2a6f38e4168424dd6",
+                "url": "https://api.github.com/repos/symfony/console/zipball/6a353cd1c0f21ae465ad64217ff24779ce25b2db",
+                "reference": "6a353cd1c0f21ae465ad64217ff24779ce25b2db",
                 "shasum": ""
             },
             "require": {
@@ -2451,7 +2524,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-18T22:16:57+00:00"
+            "time": "2018-01-24T15:57:03+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3048,7 +3121,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "electrolinux/phpquery": 20
+        "electrolinux/phpquery": 20,
+        "ruskid/yii2-csv-importer": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

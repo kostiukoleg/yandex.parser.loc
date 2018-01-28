@@ -101,7 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <input type="checkbox" id="proxy">
             </p>
             <p>
-                <input type="submit" class="btn btn-info" value="Начать парсинг">
+                <?= Html::a('Начать парсинг', ['/parser/parser-site'], ['class'=>'btn btn-primary']) ?>
             </p>
         </form>
     </div>   
