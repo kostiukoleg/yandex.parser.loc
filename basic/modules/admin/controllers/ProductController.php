@@ -67,10 +67,22 @@ class ProductController extends Controller
     {
         $model = new Product();
 
-        $this->upload($model);
+        if ($model->load(Yii::$app->request->post())) { 
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) { 
-            
+            $imageFiles = UploadedFile::getInstances($model, 'product_image');
+            if (isset($imageFiles[0]->size)) {
+                $arr = array();
+                $t = time();
+                mkdir('uploads/'.$t);
+                foreach ($imageFiles as $file) {
+                    $file->saveAs('uploads/' . $t . "/" . $file->baseName . '.' . $file->extension);
+                    $arr[] = 'uploads/' . $t . "/" . $file->baseName . '.' . $file->extension;
+                    //var_dump($arr);
+                }
+            }
+            $str = implode("|", $arr);
+            $model->product_image = $str;
+            $model->save(false); 
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -89,8 +101,6 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        $this->upload($model);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             
@@ -130,13 +140,5 @@ class ProductController extends Controller
         }
 
         throw new NotFoundHttpException('Даная страница не найдена.');
-    }
-    protected function upload($model)
-    {
-        $file = UploadedFile::getInstance($model, 'product_image');
-        if ($file && $model->validate()) {               
-            $file->saveAs( Yii::getAlias('@web') . 'uploads/' . $file->name );
-            return $file->name;
-        }
     }
 }

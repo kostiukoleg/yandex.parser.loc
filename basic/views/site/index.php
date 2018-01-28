@@ -1,8 +1,11 @@
 <?php
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 
 $this->title = 'Парсер товаров Яндекс.Маркет v.9.25';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
 <h1>Парсер товаров Яндекс.Маркет v.9.25</h1>
@@ -64,9 +67,9 @@ $this->title = 'Парсер товаров Яндекс.Маркет v.9.25';
             <p>
                 <label for="platform">Торговая площадка:</label>
                 <select id="platform" class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                <?php foreach ($platforms as $value): ?>
+                    <option value="<?= $value->id; ?>"><?= $value->title; ?></option>
+                <?php endforeach; ?>
                 </select>
             </p>
             <p>
