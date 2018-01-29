@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Platform;
 
 class SiteController extends Controller
 {
@@ -61,7 +62,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = Platform::find();
+        $platforms = $query->orderBy('id')->all();
+        return $this->render('index', ['platforms' => $platforms]);
     }
 
     /**
@@ -124,17 +127,5 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
-    }
-    
-    public function actionCleanDir($dir=""){
-        if (file_exists($dir)){
-            foreach (glob($dir.'/*') as $file){
-                unlink($file); 
-            }
-        }       
-    }
-    
-    public static function minifyHTML($html){
-        return preg_replace('/\s+/', ' ', $html);
     }
 }

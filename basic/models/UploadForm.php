@@ -20,7 +20,6 @@ class UploadForm extends Model
     
     public function upload()
     {
-        //var_dump($this->validate());
         if ($this->validate()) { 
             foreach ($this->images as $file) {
                 var_dump($this->images);
