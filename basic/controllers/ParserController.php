@@ -10,7 +10,7 @@ use app\models\Product;
 
 class ParserController extends \yii\web\Controller
 {
-	public $productList = Array();
+	public $csv;
 
     public function actionIndex()
     {
@@ -136,12 +136,76 @@ class ParserController extends \yii\web\Controller
 
 		$csv = new CsvController(Yii::getAlias("@web")."uploads/csv/data.csv");
 
-		$csv->setCSV(Array(mb_convert_encoding("Категория~URL категории~Товар~Вариант~Описание~Цена~URL~Изображение~Артикул~Количество~Активность~Заголовок [SEO]~Ключевые слова [SEO]~Описание [SEO]~Старая цена~Рекомендуемый~Новый~Сортировка~Вес~Связанные артикулы~Смежные категории~Ссылка на товар~Валюта~Свойства", "windows-1251", "utf-8")));
+		return $csv->setCSV(Array(mb_convert_encoding("Категория~URL категории~Товар~Вариант~Описание~Цена~URL~Изображение~Артикул~Количество~Активность~Заголовок [SEO]~Ключевые слова [SEO]~Описание [SEO]~Старая цена~Рекомендуемый~Новый~Сортировка~Вес~Связанные артикулы~Смежные категории~Ссылка на товар~Валюта~Свойства", "windows-1251", "utf-8")));
 	}
 
-	public static function madeDataCsv()
+	public static function madeDataCsv($csv)
 	{
+		$product = new Product();
+		$category = mb_convert_encoding($product->category, 'windows-1251', 'UTF-8'); //Категория товара "Компьютерная техника/Компьютеры и ноутбуки/Ноутбуки"
+		$url_category = $product->product_link; //URL категории
+		$goods = mb_convert_encoding($main_arr["title"][$k], 'windows-1251', 'UTF-8'); //Товар "Ноутбук Dell Inspiron N411Z"
+		$options = ""; //Вариант "без чехла"
+		$description = str_replace('{$goods}',$goods,mb_convert_encoding(preg_replace( "/\r|\n/", "", $main_arr["xpath_product_description"][$k] ), 'windows-1251', 'UTF-8'));
+		$price = $main_arr["price"][$k]; //Цена "19000"substr(, 0, -2)
+		$url = ""; //URL "noutbuk-dell-inspiron-n411z"
+		$img = ""; //Изображение "noutbuk-Dell-Inspiron-N411Z.png[:param:][alt=ноутбук dell][title=ноутбук dell]|noutbuk-Dell-Inspiron-N411Z-oneside.png[:param:][alt=Ноутбук"
+
+		if(is_array($main_arr["img"][$k])){
+			foreach($main_arr["img"][$k] as $im){
+			$img .= $im."[:param:][alt=$goods][title=$goods]|";
+			}
+			$img = substr($img, 0, -1);
+		} else {
+			$img .= $main_arr["img"][$k]."[:param:][alt=$goods][title=$goods]";
+		}
 		
+		$articul = ""; //Артикул "1000A"
+		$count = "-1"; //Количество "-1 нет на складе"
+		$activity = "1"; //Активность 1 включон 0 выключен
+		$title_seo = ""; //Заголовок [SEO]
+		$kay_words = ""; //Ключевые слова [SEO]
+		$description_seo = ""; //Описание [SEO]
+		$old_price = ""; //Старая цена
+		$reccomend = "0"; //Рекомендуемый
+		$new = "0"; //Новый
+		$sort = ""; //Сортировка
+		$weight = "0,27"; //Вес "2,27"
+		$bind_articul = ""; //Связанные артикулы
+		$neibor_category = ""; //Смежные категории
+		$link_goods = ""; //Ссылка на товар
+		$currency = "UAH"; //Валюта
+
+		$pr = array(
+			 "PB\/SB" => "полированная латунь / матовая латунь",
+			 "MACC" => "матовая бронза",
+			 "AB" => "старая бронза",
+			 "SN\/CP" => "матовый никель / полированный хром",
+			 "MBN" => "матовая темная сталь",
+			 "White" => "белый",
+			 "MOC" => "матовый старый хром",
+			 "MA" => "матовый антрацит",
+			 "MC" => "матовый хром",
+			 "BN\/SBN" => "черный никель / матовый черный никель",
+			 "BLACK" => "черный",
+			 "CP" => "полированный хром",
+			 "PCF" => "полированная бронза",
+			 "MACC\/PCF" => "матова бронза/полірована бронза",
+			 "MCF" => "матовая темная бронза",
+			 "SN" => "матовый никель",
+			 "SS" => "нержавеющая сталь",
+			 "BN" => "черный никель",
+		);
+		
+		foreach($pr as $p => $v){
+			if(preg_match("/\s".$p."$/",$main_arr["title"][$k])){
+				$propertis = "Цвет покрытия=$v"; //Свойства
+			}else{
+				$propertis = "";
+			}
+		}
+
+		return $csv->setCSV(array("$category~$url_category~$goods~$options~$description~$price~$url~$img~$articul~$count~$activity~$title_seo~$kay_words~$description_seo~$old_price~$reccomend~$new~$sort~$weight~$bind_articul~$neibor_category~$link_goods~$currency~$propertis"));
 	}
 	
 	public function actionParserSite($id)
@@ -157,6 +221,6 @@ class ParserController extends \yii\web\Controller
 		
 		$this::getProductData($this, $id);
 		
-		//return $this->render('index', ['productList'=>$productList]);
+		//return $this->render('@app/modules/admin/views/product/view');
 	}
 }

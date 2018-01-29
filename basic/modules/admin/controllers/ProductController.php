@@ -104,27 +104,25 @@ class ProductController extends Controller
     {
         $model = $this->findModel($id);
 
+        $str = $model->product_image;
+
         if ($model->load(Yii::$app->request->post())) {
             $imageFiles = UploadedFile::getInstances($model, 'product_image');
 
             if (isset($imageFiles[0]->size)) {
-				var_dump($imageFiles);
+				//var_dump($imageFiles);
                 $arr = array();
                 foreach ($imageFiles as $file) {
                     $file->saveAs('uploads/tempimage/' . $file->baseName . '.' . $file->extension);
                     $arr[] = $file->baseName . '.' . $file->extension;
                 }
-				if(is_array($arr) && count($arr)>0){
-					$str = implode("|", $arr);
-					if($str[0]!="null"||$str[0]!=""){
-						$model->product_image = $str;
-					}
-				}
+                $str = implode("|", $arr);
+                $model->product_image = $str;
+            } else {
+                $model->product_image = $str;
             }
-			//echo "<pre>";
-			//var_dump($model);
-			//echo "</pre>";
-            $model->update();
+            
+            $model->save(false); 
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
