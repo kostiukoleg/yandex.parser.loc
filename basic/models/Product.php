@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\web\UploadedFile;
+use app\models\Category;
 
 /**
  * This is the model class for table "product".
@@ -54,5 +55,12 @@ class Product extends \yii\db\ActiveRecord
             'brand' => 'Бренд',
             'description' => 'Характеристики (описание) товара',
         ];
+    }
+    /**
+     * @return relation with two category;
+     */
+    public function getCategory()
+    {
+      return $this->hasOne(Category::className(), ["id" => "category_id"]);  
     }
 }

@@ -9,7 +9,9 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Signup;
 use app\models\Platform;
+use yii\web\UploadedFile;   
 
 class SiteController extends Controller
 {
@@ -53,6 +55,25 @@ class SiteController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+    }
+
+    public function actionSignUp()
+    {
+        $model = new Signup();
+        if(Yii::$app->request->post('Signup')){
+            $model->attributes = Yii::$app->request->post('Signup');
+            $user_avatar = UploadedFile::getInstances($model, 'photo');
+            //var_dump($user_avatar);die();
+            if (isset($user_avatar[0]->size)) {
+                $user_avatar[0]->saveAs('uploads/users-avatar/' . $user_avatar[0]->baseName . '.' . $user_avatar[0]->extension);
+                $model->photo = $user_avatar[0]->baseName . '.' . $user_avatar[0]->extension;
+            }
+
+            if($model->validate() && $model->signup()){
+                return $this->goHome();
+            }
+        }
+        return $this->render('signup', ['model' => $model]);
     }
 
     /**
